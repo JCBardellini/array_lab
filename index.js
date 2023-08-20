@@ -27,39 +27,64 @@ const fahrenheitTemps = [32, 50, 68, 86, 104, 122, 140, 158, 176, 194];
 
 // add the sum
 // total #sum / by amount of arrays 
-const calculateAvgTempAndHighestTemp = (array) => {
-    let sumOfArray = 0;
-    let highestTemp = 0;
-    let avgTemp = 0;
-    for (let i=0 ; i <array.length; i++){
-        sumOfArray += array[i]
-}
-array.foreach( (item) => {
-    if (highestTemp <= item){
-        highestTemp = item
-    }
-})
-console.log(highestTemp)
-console.log(sumOfArray)
-avgTemp = sumOfArray / array.length // find the avg temp
-console.log(avgTemp)
-}
+// const calculateAvgTempAndHighestTemp = (array) => {
+//     let sumOfArray = 0;
+//     let highestTemp = 0;
+//     let avgTemp = 0;
+//     for (let i=0 ; i <array.length; i++){
+//         sumOfArray += array[i]
+// }
+// array.foreach( (item) => {
+//     if (highestTemp <= item){
+//         highestTemp = item
+//     }
+// })
+// console.log(highestTemp)
+// console.log(sumOfArray)
+// avgTemp = sumOfArray / array.length // find the avg temp
+// console.log(avgTemp)
+// }
 
-calculateAvgTempAndHighestTemp(fahrenheitTemps)
+// calculateAvgTempAndHighestTemp(fahrenheitTemps)
 
 const fruits = ["Apple", "Banana", "Orange", "Grapes", "Mango"];
 
 // 3. Write a function that will search this array for your favorite fruit. If your favorite fruit isn't found, add it!
 
- 
+ const favoriteFruit = (arr, favorite) => {
+    if (arr.includes(favorite)) {
+        console.log(`your favorite fruit is ${favorite}`);
+    } else {
+        arr.push(favorite);
+        console.log(`you have added your favorite fruit ${favorite}`);
+    };
+    return arr
+ };
+ console.log(favoriteFruit(fruits, "Grape"))
 
-// const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October"];
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October"];
 
 // 4. write a function that will shorten each string to just it's first 3 characters ("January" turns into  "Jan")
 
+const shortenMonths = month => {
+    const shortenedMonths = month.map( item => item.substring(0,3));
+    return shortenedMonths
+}
+ const newMonths = shortenMonths(months);
+ console.log(newMonths);
 
- 
-
-// const mixedData = [42, 'hello', true, 3.14, 'world', false, null, undefined, 'goodbye', 7];
+const mixedData = [42, 'hello', true, 3.14, 'world', false, null, undefined, 'goodbye', 7];
 
 // 5. Make a new array called onlyStrings. Loop through mixed Data and push only things that are string data type to this new array. 
+
+const onlyStrings = [];
+
+const fixedData = (array) => {
+    mixedData.forEach( (item) => {
+        if (typeof item == "string") {
+            onlyStrings.push(item)
+        };
+    });
+};
+fixedData(mixedData);
+console.log(onlyStrings)
